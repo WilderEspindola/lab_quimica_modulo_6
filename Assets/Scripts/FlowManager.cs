@@ -52,7 +52,16 @@ public class FlowManager : MonoBehaviour
     private void InitializeGame()
     {
         // Mensajes y UI básica
-        GameManager.Instance.UI_Messages.text = "Usa ✋ Thumbs Up para practicar o 🤙 Shaka para comenzar";
+        GameManager.Instance.UI_Messages.text =
+        "<align=center>"
+        + "¡Hola!\n"  // Azul claro
+        + "Vamos a balancear ecuaciones químicas\n"  // Azul estándar
+        + "<color=#000000><b>!!haz un gesto para comenzar!!</b></color>\n"  // Negro
+        + "</align>";
+
+        // Asegurar que el texto se muestre correctamente
+        GameManager.Instance.UI_Messages.richText = true;
+        GameManager.Instance.UI_Messages.alignment = TextAlignmentOptions.Center;
         GameManager.Instance.Timer.enabled = false;
         GameManager.Instance.MathematicsValues.gameObject.SetActive(false);
 
@@ -86,7 +95,12 @@ public class FlowManager : MonoBehaviour
     public void RightHandThumpsUpPerformed()
     {
 
-        GameManager.Instance.UI_Messages.text = "Modo Práctica: Usa los keypads. ✋ Thumbs Up izquierdo para salir.";
+        GameManager.Instance.UI_Messages.text =
+        "<align=center>"
+        + "<b>MODO PRÁCTICA</b>\n"
+        + "<color=#000000>Usa los <b>keypads</b> para ajustar valores</color>\n"
+        + "<color=#000000><b>!!haz un gesto para salir!!</b></color>"
+        + "</align>";
         GameManager.Instance.RightThumbsUp.gameObject.SetActive(false);
         GameManager.Instance.RightShaka.gameObject.SetActive(false);
         GameManager.Instance.LeftThumbsUp.gameObject.SetActive(true);
